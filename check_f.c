@@ -6,7 +6,7 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 14:35:05 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 10:19:39 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:21:45 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	f_id(char const *str, va_list args, int *check)
 	else if (*str == '%')
 		i += is_char('%', i);
 	else if (*str == 'X')
-		i += is_hex(va_arg(args, unsigned int), check);
+		i += is_hex(va_arg(args, unsigned int), 1, check);
 	else if (*str == 'x')
-		i += is_hex(va_arg(args, unsigned int), check);
+		i += is_hex(va_arg(args, unsigned int), 0 ,check);
 	else if (*str == 'u')
 		i += is_unsignbr(va_arg(args, unsigned int), check);
 	else if (*str == 'p')
