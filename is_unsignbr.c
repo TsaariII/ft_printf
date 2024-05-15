@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   is_unsignbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 13:26:29 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 13:17:26 by nzharkev         ###   ########.fr       */
+/*   Created: 2024/05/15 11:53:55 by nzharkev          #+#    #+#             */
+/*   Updated: 2024/05/15 13:18:08 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
+#include "ft_printf.h"
 
-int	check_f(char const *format, va_list args, int *c);
-int	f_id(char const *str, va_list args, int *c);
-int	ft_printf(char const *str, ...);
-int	is_char(int c, int *check);
-int is_hex(unsigned long lng, int cap, int *check);
-int	is_nbr(int n, int *check);
-int is_unsignbr(unsigned int n, int *check);
+int is_unsignbr(unsigned int n, int *check)
+{
+	int c;
 
-#endif
+	if (n >= 10)
+	{
+		c += is_nbr(n / 10, check);
+		c += is_char(n % 10 + 48, check);
+	}
+	else
+		c += is_char(n % 10 + 48, check);
+	return (c);
+}
