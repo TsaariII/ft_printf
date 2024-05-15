@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   is_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 13:26:29 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 10:39:28 by nzharkev         ###   ########.fr       */
+/*   Created: 2024/05/15 10:39:55 by nzharkev          #+#    #+#             */
+/*   Updated: 2024/05/15 10:49:53 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
+#include "ft_printf.h"
 
-int	check_f(char const *format, va_list args, int *c);
-int	f_id(char const *str, va_list args, int *c);
-int	ft_printf(char const *str, ...);
-int	is_char(int c, int *check);
+int s_len(int *l)
+{
+	int n;
+	
+	while (*l)
+	{
+		l++;
+		n ++;
+	}
+	return (n);
+}
 
-
-#endif
+int	is_str(int s, int *check)
+{
+	int	len;
+	
+	if (!s)
+		return (write(1, "NULL", 5));
+	len = s_len(s);
+	if (write(1, s, 1) == -1)
+	{
+		*check = -1;
+		return (-1);
+	}
+	return (len);
+}
