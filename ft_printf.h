@@ -6,7 +6,7 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 13:26:29 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 11:36:45 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:51:31 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	check_f(char const *format, va_list args, int *c);
 int	f_id(char const *str, va_list args, int *c);
 int	ft_printf(char const *str, ...);
 int	is_char(int c, int *check);
+int is_hex(unsigned long lng, int cap, int *check);
 int	is_nbr(int n, int *check);
 
 
