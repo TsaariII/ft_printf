@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   is_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 11:00:50 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 10:19:55 by nzharkev         ###   ########.fr       */
+/*   Created: 2024/05/15 10:17:27 by nzharkev          #+#    #+#             */
+/*   Updated: 2024/05/15 10:22:02 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *str, ...)
+int	is_char(int c, int *check)
 {
-	int		n;
-	int		check;
-	va_list	args;
-
-	n = 0;
-	check = 0;
-	va_start(args, str);
-	n = check_f(str, args, &check);
-	if (check == -1)
+	if (*check == -1)
+		return (-1);
+	if (write(1, &c, 1) == -1)
 	{
-		va_end(args);
-		return(-1);
+		*check = -1;
+		return (-1);
 	}
-	va_end(args);
-	return (n);
+	return (1);
 }

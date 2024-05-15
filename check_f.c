@@ -6,39 +6,39 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 14:35:05 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 10:09:54 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/15 10:19:39 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	f_id(char const *str, va_list args, int *c)
+int	f_id(char const *str, va_list args, int *check)
 {
 	int i;
 	
 	i = 0;
 	if (*str == 'c')
-		i += ft_char(va_arg(args, int), c);
+		i += is_char(va_arg(args, int), check);
 	else if (*str == 's')
-		i += ft_str(va_arg(args, int), c);
+		i += is_str(va_arg(args, int), check);
 	else if (*str == 'd' || *str == 'i')
-		i += ft_nbr(va_arg(args, int), c);
+		i += is_nbr(va_arg(args, int), check);
 	else if (*str == '%')
-		i += ft_char('%', i);
+		i += is_char('%', i);
 	else if (*str == 'X')
-		i += ft_hex(va_arg(args, unsigned int), i);
+		i += is_hex(va_arg(args, unsigned int), check);
 	else if (*str == 'x')
-		i += ft_hex(va_arg(args, unsigned int), i);
+		i += is_hex(va_arg(args, unsigned int), check);
 	else if (*str == 'u')
-		i += ft_unsignbr(va_arg(args, unsigned int), i);
+		i += is_unsignbr(va_arg(args, unsigned int), check);
 	else if (*str == 'p')
-		i += ft_pointer(va_arg(args, void *), i);
+		i += is_pointer(va_arg(args, void *), check);
 	if (*str == -1)
 		return (-1);
 	return (i);
 }
 
-int	check_f(char const *format, va_list args, int *c)
+int	check_f(char const *format, va_list args, int *check)
 {
 	int	n;
 	
@@ -47,14 +47,14 @@ int	check_f(char const *format, va_list args, int *c)
 	{
 		if (*format != '%')
 		{
-			n += ft_c(*format, c);
-			if (*c == -1)
+			n += ft_c(*format, check);
+			if (*check == -1)
 				return (-1);
 		}
 		else if (*format == '%')
 		{
 			format++;
-			n += f_id(format, args, c);
+			n += f_id(format, args, check);
 		}
 		format++;
 	}
