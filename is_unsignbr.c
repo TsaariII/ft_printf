@@ -6,16 +6,17 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:53:55 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 13:18:08 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:02:10 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int is_unsignbr(unsigned int n, int *check)
+int	is_unsignbr(unsigned int n, int *check)
 {
-	int c;
+	int	c;
 
+	c = 0;
 	if (n >= 10)
 	{
 		c += is_nbr(n / 10, check);

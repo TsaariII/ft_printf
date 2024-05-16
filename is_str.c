@@ -6,16 +6,17 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:39:55 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 10:49:53 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:01:14 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int s_len(int *l)
+int	s_len(char *l)
 {
-	int n;
-	
+	int	n;
+
+	n = 0;
 	while (*l)
 	{
 		l++;
@@ -24,12 +25,12 @@ int s_len(int *l)
 	return (n);
 }
 
-int	is_str(int s, int *check)
+int	is_str(char *s, int *check)
 {
 	int	len;
-	
+
 	if (!s)
-		return (write(1, "NULL", 5));
+		return (write(1, "(null)", 5));
 	len = s_len(s);
 	if (write(1, s, 1) == -1)
 	{

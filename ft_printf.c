@@ -6,7 +6,7 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:00:50 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 10:19:55 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:18:00 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(char const *str, ...)
 	if (check == -1)
 	{
 		va_end(args);
-		return(-1);
+		return (-1);
 	}
 	va_end(args);
 	return (n);

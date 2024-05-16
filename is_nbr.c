@@ -6,7 +6,7 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:10:29 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/15 11:36:08 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:57:04 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	is_nbr(int n, int *check)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (n == -2147483648)
 		i += write(1, "-2147483648", 11);
@@ -26,8 +26,8 @@ int	is_nbr(int n, int *check)
 	}
 	else if (n >= 10)
 	{
-		i += ft_nbr(n / 10, check);
-		i += ft_char(n % 10 + 48, check);
+		i += is_nbr(n / 10, check);
+		i += is_char(n % 10 + 48, check);
 	}
 	else
 		i += is_char(n % 10 + 48, check);
