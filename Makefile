@@ -15,7 +15,7 @@ CC		= cc
 
 FLAGS	= -Wall -Werror -Wextra
 
-OBJS	= $(SRC: .c=.o)
+OBJS	= $(SRC:.c=.o)
 
 all: $(NAME)
 
