@@ -6,36 +6,11 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 14:35:05 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/16 13:42:45 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/22 09:40:33 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	check_f(char const *format, va_list args, int *check)
-{
-	int	n;
-
-	n = 0;
-	while (*format != '\0')
-	{
-		if (*format != '%')
-		{
-			n += is_char(*format, check);
-			if (*check == -1)
-				return (-1);
-		}
-		else if (*format == '%')
-		{
-			format++;
-			n += f_id(format, args, check);
-			if (*check == -1)
-				return (-1);
-		}
-		format++;
-	}
-	return (n);
-}
 
 int	f_id(char const *str, va_list args, int *check)
 {
@@ -61,4 +36,29 @@ int	f_id(char const *str, va_list args, int *check)
 	if (*check == -1)
 		return (-1);
 	return (i);
+}
+
+int	check_f(char const *str, va_list args, int *check)
+{
+	int	n;
+
+	n = 0;
+	while (*str != '\0')
+	{
+		if (*str != '%')
+		{
+			n += is_char(*str, check);
+			if (*check == -1)
+				return (-1);
+		}
+		else if (*str == '%')
+		{
+			str++;
+			n += f_id(str, args, check);
+			if (*check == -1)
+				return (-1);
+		}
+		str++;
+	}
+	return (n);
 }
