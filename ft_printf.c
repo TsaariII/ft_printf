@@ -6,7 +6,7 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:00:50 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/22 09:16:39 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:56:05 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_printf(char const *str, ...)
 	num_c = 0;
 	check = 0;
 	va_start(args, str);
-	num_c = check_f(str, args, &check);
+	num_c = check_form(str, args, &check);
 	if (check == -1)
 	{
 		va_end(args);

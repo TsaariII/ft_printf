@@ -6,13 +6,13 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 14:35:05 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/22 09:40:33 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:52:07 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	f_id(char const *str, va_list args, int *check)
+int	form_id(char const *str, va_list args, int *check)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ int	f_id(char const *str, va_list args, int *check)
 	return (i);
 }
 
-int	check_f(char const *str, va_list args, int *check)
+int	check_form(char const *str, va_list args, int *check)
 {
 	int	n;
 
@@ -58,6 +58,8 @@ int	check_f(char const *str, va_list args, int *check)
 			if (*check == -1)
 				return (-1);
 		}
+		if (!*str)
+			return (0);
 		str++;
 	}
 	return (n);

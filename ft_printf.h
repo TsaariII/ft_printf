@@ -6,7 +6,7 @@
 /*   By: nzharkev <nzharkev@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 13:26:29 by nzharkev          #+#    #+#             */
-/*   Updated: 2024/05/16 14:49:48 by nzharkev         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:51:35 by nzharkev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int	check_f(char const *format, va_list args, int *check);
+int	check_form(char const *str, va_list args, int *check);
 int	f_id(char const *str, va_list args, int *check);
 int	ft_printf(char const *str, ...);
 int	is_char(int c, int *check);
